@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<!-- Database connection settings -->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://172.16.1.230:3306/test?characterEncoding=utf-8</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">root</property>
+		<!-- JDBC connection pool (use the built-in) -->
+		<property name="connection.pool_size">1</property>
+		<!-- SQL dialect -->
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<!-- Enable Hibernate's automatic session context management -->
+		<property name="current_session_context_class">thread</property>
+		<!-- Disable the second-level cache -->
+		<property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+		<!-- Echo all executed SQL to stdout -->
+		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
+		<!-- Drop and re-create the database schema on startup -->
+		<property name="hbm2ddl.auto">update</property>
+		<property name="hibernate.connection.autocommit">true</property>
+		<!--jdbc.fetch_size是指Hibernate每次从数据库中取出并放到JDBC的Statement中的记录条数。Fetch Size设的越大，读数据库的次数越少，速度越快，Fetch Size越小，读数据库的次数越多，速度越慢--> 
+		<!-- <property name="jdbc.fetch_size">50</property> -->
+		<!-- 设定对数据库进行批量删除 -->
+		<!-- <property name="jdbc.batch_size">30</property> -->
+		<!-- C3P0配置开始 -->
+		<!-- <property name="c3p0.min_size">5</property> -->
+		<!-- <property name="c3p0.max_size">20</property> -->
+		<!-- <property name="c3p0.timeout">1800</property> -->
+		<!-- <property name="c3p0.max_statements">50</property> -->
+		<!-- C3P0配置结束 -->
+
+		<!-- 下面为JNDI的配置 数据源的名称 <property name="connection.datasource">java:comp/env/jdbc/datasourcename</property> 
+			Hibernate的连接加载类 <property name="connection.provider_class">net.sf.hibernate.connection.DatasourceConnectionProvider</property> 
+			<property name="dialect">net.sf.hibernate.dialect.SQLServerDialect</property> -->
+
+		<!-- 映射文件 -->
+		<mapping resource="cn/demo/user/model/User.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>
