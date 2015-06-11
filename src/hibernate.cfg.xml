@@ -41,5 +41,6 @@
 
 		<!-- 映射文件 -->
 		<mapping resource="cn/demo/user/model/User.hbm.xml" />
+		<mapping resource="cn/demo/user/model/Dept.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>
